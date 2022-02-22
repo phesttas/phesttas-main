@@ -1,0 +1,15 @@
+[submodule "phesttas-customers-web"]
+	path = phesttas-customers-web
+	url = git@github.com:phesttas/phesttas-customers-web.git
+[submodule "phesttas-customers-api"]
+	path = phesttas-customers-api
+	url = git@github.com:phesttas/phesttas-customers-api.git
+[submodule "phesttas-events-api"]
+	path = phesttas-events-api
+	url = git@github.com:phesttas/phesttas-events-api.git
+[submodule "phesttas-events-web"]
+	path = phesttas-events-web
+	url = git@github.com:phesttas/phesttas-events-web.git
+[submodule "phesttas-payments"]
+	path = phesttas-payments
+	url = git@github.com:phesttas/phesttas-payments.git
