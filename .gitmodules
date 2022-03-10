@@ -1,15 +1,24 @@
-[submodule "phesttas-customers-web"]
-	path = phesttas-customers-web
-	url = git@github.com:phesttas/phesttas-customers-web.git
 [submodule "phesttas-customers-api"]
 	path = phesttas-customers-api
 	url = git@github.com:phesttas/phesttas-customers-api.git
-[submodule "phesttas-events-api"]
-	path = phesttas-events-api
-	url = git@github.com:phesttas/phesttas-events-api.git
-[submodule "phesttas-events-web"]
-	path = phesttas-events-web
-	url = git@github.com:phesttas/phesttas-events-web.git
 [submodule "phesttas-payments"]
 	path = phesttas-payments
 	url = git@github.com:phesttas/phesttas-payments.git
+[submodule "phesttas-email-service"]
+	path = phesttas-email-service
+	url = git@github.com:phesttas/phesttas-email-service.git
+[submodule "phesttas-tickets-service"]
+	path = phesttas-tickets-service
+	url = git@github.com:phesttas/phesttas-tickets-service.git
+[submodule "phesttas-customers-service"]
+	path = phesttas-customers-service
+	url = git@github.com:phesttas/phesttas-customers-service.git
+[submodule "phesttas-tickets-api"]
+	path = phesttas-tickets-api
+	url = git@github.com:phesttas/phesttas-tickets-api.git
+[submodule "phesttas-web"]
+	path = phesttas-web
+	url = git@github.com:phesttas/phesttas-web.git
+[submodule "phesttas-notifications-service"]
+	path = phesttas-notifications-service
+	url = git@github.com:phesttas/phesttas-notifications-service.git
