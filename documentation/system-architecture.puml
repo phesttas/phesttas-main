@@ -1,0 +1,70 @@
+@startuml "messagebus"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+
+!includeurl ICONURL/common.puml
+!includeurl ICONURL/material/message.puml
+!includeurl ICONURL/font-awesome-5/apple.puml
+!includeurl ICONURL/font-awesome-5/lock.puml
+!includeurl ICONURL/font-awesome-5/mail_bulk.puml
+!includeurl ICONURL/font-awesome-5/credit_card.puml
+!includeurl ICONURL/font-awesome-5/door_open.puml
+!includeurl ICONURL/font-awesome/users.puml
+
+!includeurl ICONURL/devicons2/android_wordmark.puml
+!includeurl ICONURL/devicons2/google.puml
+!includeurl ICONURL/devicons2/postgresql_wordmark.puml
+!includeurl ICONURL/devicons2/nextjs_original.puml
+!includeurl ICONURL/devicons2/go.puml
+!includeurl ICONURL/devicons2/mongodb_wordmark.puml
+
+Person(customer, Customer, "Customer of the ticket service", $sprite="users")
+
+Container(iosMobileApp, iOSMobileApp, "Mobile app", $sprite="apple")
+Container(androidMobileApp, AndroidMobileApp, "Mobile app", $sprite="android_wordmark")
+Container(webApp, WebApp, "Web app", $sprite="nextjs_original")
+Container(apiGateway, ApiGateway, "API Gateway", $sprite="door_open")
+Container(customersApi, CustomersApi, "Customers API", $sprite="go")
+Container(ticketsApi, TicketsApi, "Tickets API", $sprite="go")
+ContainerQueue(messageBus, MessageBus, "Message bus", $sprite="message")
+Container(customersService, CustomersService, "Customers service", $sprite="go")
+Container(ticketService, TicketService, "Ticket service", $sprite="go")
+Container(paymentsService, PaymentsService, "Payments service", $sprite="go")
+Container_Ext(paymentsGateway, PaymentsGateway, "Payments gateway", $sprite="credit_card")
+Container(authService, AuthService, "Auth service", $sprite="lock")
+Container_Ext(googleAuthService, GoogleAuthService, "Google Auth service", $sprite="google")
+Container(notificationsService, NotificationsService, "Notifications service", $sprite="go")
+Container(emailService, EmailService, "Email service", $sprite="mail_bulk")
+Container_Ext(emailServer, EmailServer, "Email server", $sprite="mail_bulk")
+ContainerDb(customersDB, CustomersDB, "Customers DB", $sprite="postgresql_wordmark")
+ContainerDb(ticketsDB, TicketsDB, "Tickets DB", $sprite="postgresql_wordmark")
+ContainerDb(paymentsDB, PaymentsDB, "Payments DB", $sprite="postgresql_wordmark")
+ContainerDb(authDB, AuthDB, "Auth DB", $sprite="postgresql_wordmark")
+
+Rel(customer, iosMobileApp, "Mobile app")
+Rel(customer, androidMobileApp, "Mobile app")
+Rel(customer, webApp, "Web app")
+Rel(iosMobileApp, apiGateway, "mobileApp -> apiGateway")
+Rel(androidMobileApp, apiGateway, "mobileApp -> apiGateway")
+Rel(webApp, apiGateway, "webApp -> apiGateway")
+Rel(apiGateway, authService, "apiGateway -> authService")
+Rel(apiGateway, customersApi, "apiGateway -> customersApi")
+Rel(apiGateway, ticketsApi, "apiGateway -> ticketsApi")
+Rel(apiGateway, googleAuthService, "apiGateway -> googleAuthService")
+Rel(customersApi, messageBus, "customersApi -> messageBus")
+Rel(ticketsApi, messageBus, "ticketsApi -> messageBus")
+Rel(messageBus, customersService, "messageBus -> customersService")
+Rel(messageBus, ticketService, "messageBus -> ticketService")
+Rel(messageBus, paymentsService, "messageBus -> paymentsService")
+Rel(customersService, customersDB, "messageBus -> customersDB")
+Rel(ticketService, ticketsDB, "messageBus -> ticketsDB")
+Rel(paymentsService, paymentsDB, "messageBus -> paymentsDB")
+Rel(paymentsService, paymentsGateway, "messageBus -> paymentsGateway")
+Rel(authService, authDB, "messageBus -> authDB")
+Rel(messageBus, notificationsService, "messageBus -> notificationsService")
+Rel(messageBus, emailService, "messageBus -> emailService")
+Rel(emailService, emailServer, "emailService -> emailServer")
+Rel(messageBus, notificationsService, "messageBus -> notificationsService")
+
+@enduml
