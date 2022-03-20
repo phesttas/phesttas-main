@@ -1,0 +1,9 @@
+@startuml modeling
+
+actor :Customer: as customer
+
+usecase (Login) as login
+
+customer --> login
+
+@enduml
