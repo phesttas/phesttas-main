@@ -31,7 +31,7 @@ Description: A registered customer log on system and after that can access your 
 
 Identifier: FR003 \
 Category: Basic functionality \
-Name: View your created and events. \
+Name: View your created events and tickets. \
 Create at: 21/03/2022 \
 Author: Fernando Passos \
 Version: 1 \
@@ -45,15 +45,56 @@ Description: On start screen, customer can visualize your created events, invite
 
 Identifier: FR004 \
 Category: Basic functionality \
-Name: View your created and events. \
-Create at: 21/03/2022 \
+Name: Create a new event. \
+Create at: 23/03/2022 \
 Author: Fernando Passos \
 Version: 1 \
 Updated at: \
 Last update author: \
 Priority: Essential \
-Description: On start screen, customer can visualize your created events, invites and bougth tickets.  \
+Description: A section to create a new event and choose your properties as name, paid or free and public or private and the direct access or by request \
 
+
+### FR005
+
+Identifier: FR005 \
+Category: Basic functionality \
+Name: Configure the new event. \
+Create at: 23/03/2022 \
+Author: Fernando Passos \
+Version: 1 \
+Updated at: \
+Last update author: \
+Priority: Essential \
+Description: A subsection to an event to configure the properties and the event sections and their prices. We can make an invited list too. The list will generate emails for any invited person \
+
+
+### FR006
+
+Identifier: FR006 \
+Category: Basic functionality \
+Name: Find an event. \
+Create at: 23/03/2022 \
+Author: Fernando Passos \
+Version: 1 \
+Updated at: \
+Last update author: \
+Priority: Essential \
+Description: A section to list public events by date and/or place even publisher too. \ 
+
+
+### FR007
+
+Identifier: FR007 \
+Category: Basic functionality \
+Name: Join to an event. \
+Create at: 23/03/2022 \
+Author: Fernando Passos \
+Version: 1 \
+Updated at: \
+Last update author: \
+Priority: Essential \
+Description: The customer can join to an event directly or by access request. If the event is paid, the customer will select the event section and price and will redirect to a payment page. \ 
 
 
 
