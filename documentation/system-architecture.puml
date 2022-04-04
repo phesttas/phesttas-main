@@ -17,7 +17,7 @@
 !includeurl ICONURL/devicons2/postgresql_wordmark.puml
 !includeurl ICONURL/devicons2/nextjs_original.puml
 !includeurl ICONURL/devicons2/go.puml
-!includeurl ICONURL/devicons2/mongodb_wordmark.puml
+!includeurl ICONURL/devicons2/typescript.puml
 
 Person(customer, Customer, "Customer of the ticket service", $sprite="users")
 
@@ -25,7 +25,7 @@ Container(iosMobileApp, iOSMobileApp, "Mobile app", $sprite="apple")
 Container(androidMobileApp, AndroidMobileApp, "Mobile app", $sprite="android_wordmark")
 Container(webApp, WebApp, "Web app", $sprite="nextjs_original")
 Container(apiGateway, ApiGateway, "API Gateway", $sprite="door_open")
-Container(customersApi, CustomersApi, "Customers API", $sprite="go")
+Container(customersApi, CustomersApi, "Customers API", $sprite="go", $sprite="typescript")
 Container(ticketsApi, TicketsApi, "Tickets API", $sprite="go")
 ContainerQueue(messageBus, MessageBus, "Message bus", $sprite="message")
 Container(customersService, CustomersService, "Customers service", $sprite="go")
@@ -42,29 +42,53 @@ ContainerDb(ticketsDB, TicketsDB, "Tickets DB", $sprite="postgresql_wordmark")
 ContainerDb(paymentsDB, PaymentsDB, "Payments DB", $sprite="postgresql_wordmark")
 ContainerDb(authDB, AuthDB, "Auth DB", $sprite="postgresql_wordmark")
 
-Rel(customer, iosMobileApp, "Mobile app")
-Rel(customer, androidMobileApp, "Mobile app")
-Rel(customer, webApp, "Web app")
-Rel(iosMobileApp, apiGateway, "mobileApp -> apiGateway")
-Rel(androidMobileApp, apiGateway, "mobileApp -> apiGateway")
-Rel(webApp, apiGateway, "webApp -> apiGateway")
-Rel(apiGateway, authService, "apiGateway -> authService")
-Rel(apiGateway, customersApi, "apiGateway -> customersApi")
-Rel(apiGateway, ticketsApi, "apiGateway -> ticketsApi")
-Rel(apiGateway, googleAuthService, "apiGateway -> googleAuthService")
-Rel(customersApi, messageBus, "customersApi -> messageBus")
-Rel(ticketsApi, messageBus, "ticketsApi -> messageBus")
-Rel(messageBus, customersService, "messageBus -> customersService")
-Rel(messageBus, ticketService, "messageBus -> ticketService")
-Rel(messageBus, paymentsService, "messageBus -> paymentsService")
-Rel(customersService, customersDB, "messageBus -> customersDB")
-Rel(ticketService, ticketsDB, "messageBus -> ticketsDB")
-Rel(paymentsService, paymentsDB, "messageBus -> paymentsDB")
-Rel(paymentsService, paymentsGateway, "messageBus -> paymentsGateway")
-Rel(authService, authDB, "messageBus -> authDB")
-Rel(messageBus, notificationsService, "messageBus -> notificationsService")
-Rel(messageBus, emailService, "messageBus -> emailService")
-Rel(emailService, emailServer, "emailService -> emailServer")
-Rel(messageBus, notificationsService, "messageBus -> notificationsService")
+customer <--> iosMobileApp
+customer <--> androidMobileApp
+customer <--> webApp
+iosMobileApp <--> apiGateway
+androidMobileApp <--> apiGateway
+webApp <--> apiGateway
+apiGateway <--> authService
+apiGateway <--> customersApi
+apiGateway <--> ticketsApi
+apiGateway <--> googleAuthService
+customersApi <--> messageBus
+ticketsApi <--> messageBus
+messageBus <--> customersService
+messageBus <--> ticketService
+messageBus <--> paymentsService
+customersService <--> customersDB
+ticketService <--> ticketsDB
+paymentsService <--> paymentsDB
+paymentsService <--> paymentsGateway
+authService <--> authDB
+messageBus <--> notificationsService
+messageBus <--> emailService
+emailService <--> emailServer
+
+' Rel(customer, iosMobileApp, "Mobile app")
+' Rel(customer, androidMobileApp, "Mobile app")
+' Rel(customer, webApp, "Web app")
+' Rel(iosMobileApp, apiGateway, "mobileApp -> apiGateway")
+' Rel(androidMobileApp, apiGateway, "mobileApp -> apiGateway")
+' Rel(webApp, apiGateway, "webApp -> apiGateway")
+' Rel(apiGateway, authService, "apiGateway -> authService")
+' Rel(apiGateway, customersApi, "apiGateway -> customersApi")
+' Rel(apiGateway, ticketsApi, "apiGateway -> ticketsApi")
+' Rel(apiGateway, googleAuthService, "apiGateway -> googleAuthService")
+' Rel(customersApi, messageBus, "customersApi -> messageBus")
+' Rel(ticketsApi, messageBus, "ticketsApi -> messageBus")
+' Rel(messageBus, customersService, "messageBus -> customersService")
+' Rel(messageBus, ticketService, "messageBus -> ticketService")
+' Rel(messageBus, paymentsService, "messageBus -> paymentsService")
+' Rel(customersService, customersDB, "messageBus -> customersDB")
+' Rel(ticketService, ticketsDB, "messageBus -> ticketsDB")
+' Rel(paymentsService, paymentsDB, "messageBus -> paymentsDB")
+' Rel(paymentsService, paymentsGateway, "messageBus -> paymentsGateway")
+' Rel(authService, authDB, "messageBus -> authDB")
+' Rel(messageBus, notificationsService, "messageBus -> notificationsService")
+' Rel(messageBus, emailService, "messageBus -> emailService")
+' Rel(emailService, emailServer, "emailService -> emailServer")
+
 
 @enduml
