@@ -18,6 +18,10 @@
 !includeurl ICONURL/devicons2/nextjs_original.puml
 !includeurl ICONURL/devicons2/go.puml
 !includeurl ICONURL/devicons2/typescript.puml
+!includeurl ICONURL/devicons2/python.puml
+!includeurl ICONURL/devicons2/nestjs.puml
+!includeurl ICONURL/devicons2/mongodb_wordmark.puml
+!includeurl ICONURL/devicons2/java.puml
 
 Person(customer, Customer, "Customer of the ticket service", $sprite="users")
 
@@ -25,19 +29,19 @@ Container(iosMobileApp, iOSMobileApp, "Mobile app", $sprite="apple")
 Container(androidMobileApp, AndroidMobileApp, "Mobile app", $sprite="android_wordmark")
 Container(webApp, WebApp, "Web app", $sprite="nextjs_original")
 Container(apiGateway, ApiGateway, "API Gateway", $sprite="door_open")
-Container(customersApi, CustomersApi, "Customers API", $sprite="go", $sprite="typescript")
+Container(customersApi, CustomersApi, "Customers API", $sprite="go", $sprite="nestjs")
 Container(ticketsApi, TicketsApi, "Tickets API", $sprite="go")
 ContainerQueue(messageBus, MessageBus, "Message bus", $sprite="message")
-Container(customersService, CustomersService, "Customers service", $sprite="go")
+Container(customersService, CustomersService, "Customers service", $sprite="nestjs")
 Container(ticketService, TicketService, "Ticket service", $sprite="go")
-Container(paymentsService, PaymentsService, "Payments service", $sprite="go")
+Container(paymentsService, PaymentsService, "Payments service", $sprite="java")
 Container_Ext(paymentsGateway, PaymentsGateway, "Payments gateway", $sprite="credit_card")
 Container(authService, AuthService, "Auth service", $sprite="lock")
 Container_Ext(googleAuthService, GoogleAuthService, "Google Auth service", $sprite="google")
-Container(notificationsService, NotificationsService, "Notifications service", $sprite="go")
+Container(notificationsService, NotificationsService, "Notifications service", $sprite="python")
 Container(emailService, EmailService, "Email service", $sprite="mail_bulk")
 Container_Ext(emailServer, EmailServer, "Email server", $sprite="mail_bulk")
-ContainerDb(customersDB, CustomersDB, "Customers DB", $sprite="postgresql_wordmark")
+ContainerDb(customersDB, CustomersDB, "Customers DB", $sprite="mongodb_wordmark")
 ContainerDb(ticketsDB, TicketsDB, "Tickets DB", $sprite="postgresql_wordmark")
 ContainerDb(paymentsDB, PaymentsDB, "Payments DB", $sprite="postgresql_wordmark")
 ContainerDb(authDB, AuthDB, "Auth DB", $sprite="postgresql_wordmark")
@@ -65,6 +69,9 @@ authService <--> authDB
 messageBus <--> notificationsService
 messageBus <--> emailService
 emailService <--> emailServer
+customersApi <--> customersService
+ticketsApi <--> ticketService
+ticketsApi <--> customersApi
 
 ' Rel(customer, iosMobileApp, "Mobile app")
 ' Rel(customer, androidMobileApp, "Mobile app")
