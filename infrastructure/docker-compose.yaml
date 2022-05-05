@@ -294,6 +294,11 @@ services:
     ports:
       - 8080:8080
 
+  payments-service:
+    image: phesttas/payments
+    build: phesttas-payments/
+
+
 volumes:
   customers-vol:
   payments-vol:
